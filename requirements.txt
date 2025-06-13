@@ -2,6 +2,9 @@
 numpy==1.26.1 # Numerical computing and operations
 pandas==2.1.1 # Data manipulation and analysis
 
+# Data Source
+kagglehub # Access and download Kaggle datasets
+
 # Visualization Libraries
 matplotlib==3.8.0 # Basic plotting and charting
 seaborn==0.13.2 # Statistical data visualisation
