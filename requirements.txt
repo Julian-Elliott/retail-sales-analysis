@@ -8,7 +8,7 @@ kagglehub # Access and download Kaggle datasets
 # Visualization Libraries
 matplotlib==3.8.0 # Basic plotting and charting
 seaborn==0.13.2 # Statistical data visualisation
-plotly==5.17.0 # Interactive visualizations and dashboards for sales analytics
+plotly==5.17.0 # Interactive visualisations and dashboards for sales analytics
 
 # Exploratory Data Analysis
 ydata-profiling==4.12.0 # Automated EDA
