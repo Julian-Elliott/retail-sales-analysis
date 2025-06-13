@@ -91,6 +91,10 @@ This project analyses retail sales data from an anonymous superstore chain in th
 * In this section, you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism. 
 * You can break the credits section up into Content and Media, depending on what you have included in your project. 
 
+- [Kaggle API Dataset Download Guide](https://github.com/Kaggle/kagglehub/blob/main/README.md#download-dataset)
+- [Jupyter Notebook Data Analysis Template](https://raw.githubusercontent.com/Code-Institute-Org/data-analytics-template/refs/heads/main/jupyter_notebooks/Notebook_Template.ipynb)
+- [README.md Data Analysis Template](https://raw.githubusercontent.com/Code-Institute-Solutions/da-README-template/refs/heads/main/README.md)
+
 ### Content 
 
 - The text for the Home page was taken from Wikipedia Article A
