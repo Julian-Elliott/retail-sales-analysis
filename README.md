@@ -83,63 +83,88 @@ This project implements a comprehensive 6-stage ETL pipeline that transforms raw
 - **Economic Resilience**: Understand retail performance sensitivity to external economic factors
 - **Maximise Promotional Effectiveness**: Quantify the impact of markdowns to refine pricing and promotion strategies.
 
+## Key Findings & Strategic Insights
 
-:::::::::::::::::::Template::::::::::::::::::::
+### 1. Promotional Markdown Impact
+**Hypothesis Validated**: Markdown promotional activities serve as primary drivers of sales volume, with strategic absence correlating strongly with reduced performance.
 
-## Hypothesis and how to validate?
-* List here your project hypothesis(es) and how you envision validating it (them) 
+#### Core Findings:
+- **Direct Impact**: MarkDown1 shows consistent positive correlation (0.086-0.090) with sales across all store types
+- **Statistical Significance**: MarkDown1 coefficient of 0.1992 with p < 0.001, indicating strong promotional effectiveness
+- **Escalating Benefits**: Higher markdown levels correspond to progressively higher sales, peaking at $22,600 average weekly sales for "High" markdown periods
+- **Strategic Missingness**: Missing markdown data represents deliberate strategic decisions rather than random gaps
+  - Stores without MD2-4 markdowns show systematically lower sales (-1,600 to -11,376 average weekly impact)
+  - Effect persists within store types, confirming strategic rather than resource-based decisions
 
-## Project Plan
-* Outline the high-level steps taken for the analysis.
-* How was the data managed throughout the collection, processing, analysis and interpretation steps?
-* Why did you choose the research methodologies you used?
+### 2. Holiday & Seasonal Performance Patterns
+#### Holiday Sales Lift:
+- **Holiday Boost**: Holiday weeks generate 9.3% higher average sales ($17,600 vs $16,100)
+- **Seasonal Peak**: November holiday periods show largest monthly lift ($22,200 vs $16,000 non-holiday)
+- **Markdown Synergy**: Combining holidays with markdowns produces optimal results:
+  - Non-holiday + No Markdown: ~$8,600
+  - Non-holiday + With Markdown: ~$16,100 (87% increase)
+  - Holiday + With Markdown: ~$17,600 (best performance)
 
-## The rationale to map the business requirements to the Data Visualisations
-* List your business requirements and a rationale to map them to the Data Visualisations
+#### Strategic Implications:
+- Holiday periods represent critical revenue opportunities
+- Markdown strategies during holidays amplify sales impact
+- Weeks without markdowns, especially during holidays, yield lowest performance
 
-## Analysis techniques used
-* List the data analysis methods used and explain limitations or alternative approaches.
-* How did you structure the data analysis techniques. Justify your response.
-* Did the data limit you, and did you use an alternative approach to meet these challenges?
-* How did you use generative AI tools to help with ideation, design thinking and code optimisation?
+### 3. Store Size & Type Performance Hierarchy
+#### Store Size Impact:
+- **Strongest Predictor**: Store size shows highest correlation with sales (0.245)
+- **Performance Hierarchy**: 
+  - Extra Large: $20-30M weekly (highest volume, most seasonal variation)
+  - Medium: $10-15M weekly (second highest performance)
+  - Large: $6-8M weekly (steady mid-range performance)
+  - Small: $4-6M weekly (lowest but most stable)
 
-## Ethical considerations
-* Were there any data privacy, bias or fairness issues with the data?
-* How did you overcome any legal or societal issues?
+#### Store Type Strategies:
+- **Type A Stores**: Rely heavily on comprehensive markdown strategies (-1,600 to -11,376 impact when missing)
+- **Type B Stores**: Show moderate markdown dependency with focused approaches (-844 to -2,066 impact)
+- **Type C Stores**: Exhibit unique patterns - positive effect when MD4 missing (+1,100), suggesting resource-constrained optimization
 
-## Dashboard Design
-* List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other item that your dashboard library supports.
-* Later, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project you were confident you would use a given plot to display an insight but subsequently you used another plot type).
-* How were data insights communicated to technical and non-technical audiences?
-* Explain how the dashboard was designed to communicate complex data insights to different audiences. 
+### 4. Economic Factors & External Drivers
+#### Limited Economic Impact:
+- **Weak Correlations**: Most economic indicators show minimal linear relationship with sales:
+  - Temperature: -0.008
+  - Fuel Price: -0.014
+  - CPI: -0.020
+  - Unemployment: -0.032
+- **Implication**: Internal promotional strategies (markdowns, store size) drive performance more than external economic conditions
+
+### 5. Temporal Stability & Trends
+#### Consistent Performance Patterns:
+- **Stable Hierarchy**: Store size performance ranking remains consistent (2010-2012)
+- **No Decline Trends**: All store categories show stable performance without significant long-term decline
+- **Seasonal Reliability**: Holiday patterns repeat consistently across years
+
+### Strategic Recommendations
+
+#### 1. Promotional Strategy Optimization
+- **Prioritize MarkDown1**: 95%+ completion rate makes it the most reliable promotional lever
+- **Strategic Layering**: Implement multiple markdown levels (MD2-4) for Type A stores to maximize impact
+- **Holiday Focus**: Concentrate marketing spend during November-December for maximum ROI
+
+#### 2. Store Performance Management
+- **Size-Based Targets**: Set performance expectations based on store size categories
+- **Type-Specific Strategies**: 
+  - Type A: Aggressive multi-level markdown campaigns
+  - Type B: Focused, targeted promotional approach
+  - Type C: Resource-efficient strategies avoiding deep discounting (MD4)
+
+#### 3. Resource Allocation
+- **Holiday Inventory**: Increase stock levels for holiday periods, especially for larger stores
+- **Promotional Budget**: Allocate marketing spend based on store size and type effectiveness
+- **Seasonal Staffing**: Scale workforce to match predictable holiday volume increases
+
+#### 4. Performance Monitoring
+- **Leading Indicators**: Monitor markdown implementation rates as early predictor of sales performance
+- **Store Benchmarking**: Compare performance within size/type categories rather than absolute terms
+- **Economic Independence**: Focus on internal levers (promotions, inventory) over external economic factors
 
 ## Unfixed Bugs
-* Please mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a significant variable to consider, paucity of time and difficulty understanding implementation are not valid reasons to leave bugs unfixed.
-* Did you recognise gaps in your knowledge, and how did you address them?
-* If applicable, include evidence of feedback received (from peers or instructors) and how it improved your approach or understanding.
-
-## Development Roadmap
-* What challenges did you face, and what strategies were used to overcome these challenges?
-* What new skills or tools do you plan to learn next based on your project experience? 
-
-## Deployment
-### Heroku
-
-* The App live link is: https://YOUR_APP_NAME.herokuapp.com/ 
-* Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
-* The project was deployed to Heroku using the following steps.
-
-1. Log in to Heroku and create an App
-2. From the Deploy tab, select GitHub as the deployment method.
-3. Select your repository name and click Search. Once it is found, click Connect.
-4. Select the branch you want to deploy, then click Deploy Branch.
-5. The deployment process should happen smoothly if all deployment files are fully functional. Click now the button Open App on the top of the page to access your App.
-6. If the slug size is too large then add large files not required for the app to the .slugignore file.
-
-
-## Main Data Analysis Libraries
-* Here you should list the libraries you used in the project and provide an example(s) of how you used these libraries.
-
+* Unfixxed bugs and features can be found at https://github.com/users/Julian-Elliott/projects/3
 
 ## Credits 
 
@@ -151,19 +176,3 @@ This project implements a comprehensive 6-stage ETL pipeline that transforms raw
 - [README.md Data Analysis Template](https://raw.githubusercontent.com/Code-Institute-Solutions/da-README-template/refs/heads/main/README.md)
 - [shutil High-level file operations](https://docs.python.org/3/library/shutil.html)
 - [Kaggle Data Source](https://www.kaggle.com/datasets/manjeetsingh/retaildataset/data)
-
-### Content 
-
-- The text for the Home page was taken from Wikipedia Article A
-- Instructions on how to implement form validation on the Sign-Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
-- The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
-
-### Media
-
-- The photos used on the home and sign-up page are from This Open-Source site
-- The images used for the gallery page were taken from this other open-source site
-
-
-
-## Acknowledgements (optional)
-* Thank the people who provided support through this project.
