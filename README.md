@@ -94,7 +94,8 @@ This project analyses retail sales data from an anonymous superstore chain in th
 - [Kaggle API Dataset Download Guide](https://github.com/Kaggle/kagglehub/blob/main/README.md#download-dataset)
 - [Jupyter Notebook Data Analysis Template](https://raw.githubusercontent.com/Code-Institute-Org/data-analytics-template/refs/heads/main/jupyter_notebooks/Notebook_Template.ipynb)
 - [README.md Data Analysis Template](https://raw.githubusercontent.com/Code-Institute-Solutions/da-README-template/refs/heads/main/README.md)
-- [shutil High-level file operations]https://docs.python.org/3/library/shutil.html
+- [shutil High-level file operations](https://docs.python.org/3/library/shutil.html)
+- [Kaggle Data Source](https://www.kaggle.com/datasets/manjeetsingh/retaildataset/data)
 
 ### Content 
 
