@@ -12,6 +12,61 @@ This project analyses retail sales data from an anonymous superstore chain in th
 - **`stores-data-set.csv`** (45 records): Store metadata including type and size
 - **`features-data-set.csv`** (8,190 records): Economic and promotional features including temperature, fuel prices, CPI, unemployment rates, and markdown events
 
+## ETL Pipeline & Data Processing
+
+### Data Transformation Architecture
+This project implements a comprehensive 6-stage ETL pipeline that transforms raw CSV files into analysis-ready datasets optimized for different use cases:
+
+### Stage 1: Data Extraction & Initial Loading
+- **Source**: Kaggle retail dataset via `kagglehub` API
+- **Raw datasets loaded**:
+  - `sales_df_raw`: 421,570 weekly sales records (Store × Department × Week granularity)
+  - `stores_df_raw`: 45 store master records with type and size classifications
+  - `features_df_raw`: 8,190 economic/promotional feature records
+
+### Stage 2: Data Profiling & Quality Assessment  
+- **Data dictionary generation** for comprehensive column analysis
+- **Missing data analysis**: Identified 50-64% missingness in markdown columns (by design post-Nov 2011)
+- **Quality issues discovered**: 7% missing economic indicators (CPI, Unemployment)
+- **Bias detection**: Store type representation and temporal coverage analysis
+
+### Stage 3: Data Type Standardization & Preparation
+- **Date parsing**: Convert DD/MM/YYYY strings → datetime64[ns] format
+- **Create transform datasets**: Preserve original raw data integrity
+- **Data validation**: Ensure consistent formats across all datasets
+
+### Stage 4: Schema Integration & Relationship Mapping
+- **Star schema identification**: Sales (fact) ← Stores/Features (dimensions)
+- **Join key mapping**: 
+  - Sales ↔ Stores: `Store` (Many-to-One)
+  - Sales ↔ Features: `Store` + `Date` composite key (One-to-One)
+- **Referential integrity validation**: Zero orphaned keys confirmed
+- **Data range alignment**: Trim features to match sales timeline (end 2012-10-26)
+- **Duplicate removal**: Drop redundant `IsHoliday` column from features
+
+### Stage 5: Denormalization & Strategic Dataset Creation
+- **LEFT JOIN execution**: Create comprehensive denormalized table (421,570 × 16 columns)
+- **Strategic dataset splitting**:
+  - **`sales_df`**: Full timeline (Feb 2010 - Oct 2012) for trend analysis
+  - **`promo_sales_df`**: Nov 2011+ subset (151,432 records) for promotional analysis
+
+### Stage 6: Data Cleaning & Feature Engineering
+- **Missing value treatment**:
+  - Markdown columns: Impute NaN → 0.0 (no promotional discount)
+  - Economic indicators: Forward-fill by store (gradual macro changes)
+- **Missing data flags**: Create binary indicators for strategic markdown analysis
+- **Feature engineering**: Generate temporal features:
+  - Temporal components (Year, Month, Quarter, Week_of_Year)
+  - Seasonal indicators (Season categories, binary flags)
+  - Holiday periods (extended holiday effects)
+  - Cyclical features (Month_Sin/Cos, Week_Sin/Cos)
+
+### Final Output Datasets
+- **`sales_df`**: Complete dataset (421,570 × 78 columns) for general analysis
+- **`promo_sales_df`**: Promotional dataset (151,432 × 78 columns) with complete markdown features
+- **Zero missing values** achieved through strategic imputation
+- **Analysis-ready format** optimized for statistical modeling and visualization
+
 ## Analysis Questions & Objectives
 
 ### Research Questions
